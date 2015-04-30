@@ -1,0 +1,89 @@
+body{
+
+  margin-left:10%;
+  margin-right:10%;
+  margin-top:30px;
+  margin-bottom:20px;
+
+  background-image:url(../images/fondo_1.png);
+  background-attachment:fixed;
+  background-repeat:repeat;
+
+}
+
+#OUTPUT  {
+    background-color: white;
+    width: 60%;
+}
+
+.menu dl#primero{
+  float:left;
+  margin-top:40px;
+
+  width:160px;
+  height:auto;
+  padding:5px;
+  overflow:auto;
+  line-height:20px;
+
+  border-color:black;
+  border-style:solid;
+  background:#424242;
+
+
+  font-family:Airal;
+  font-size:16px;
+  font-weight:bold;
+}
+.menu dl#segundo{
+  clear: left;
+  float:left;
+  margin-top:100px;
+
+  width:160px;
+  height:auto;
+  padding:5px;
+  overflow:auto;
+  line-height:20px;
+
+  border-color:black;
+  border-style:solid;
+  background:#0404B4;
+
+  font-family:Airal;
+  font-size:16px;
+  font-weight:bold;
+  text-align: center;
+}
+.contenido p{
+  color: white;
+}
+.contenido_total{
+  margin-left:200px;
+}
+.descripcion{
+  text-align: center;
+}
+.contenido{
+  margin-top:20px;
+}
+.btn_1{
+  display: inline-block;
+}
+.btn_2{
+  margin-top: 10px;
+}
+.btn_3{
+  margin-top: 10px;
+}
+.btn_4{
+  margin-top: 10px;
+}
+.btn_5{
+  margin-left: 70px;
+  display: inline-block;
+}
+.btn_parse{
+  display: inline-block;
+  margin-left: 90px;
+}
