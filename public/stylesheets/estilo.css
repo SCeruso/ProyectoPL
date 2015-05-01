@@ -12,57 +12,75 @@ body{
 }
 
 #OUTPUT  {
-    background-color: white;
-    width: 60%;
+  background-color: white;
+  width: 60%;
 }
-
+.myButton {
+	background-color:#b6c20a;
+  border-radius:28px;
+	border:1px solid #16de2a;
+	display:inline-block;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:14px;
+	padding:6px 20px;
+	text-shadow:0px 1px 0px #2f6627;
+  margin-left: 5px;
+}
+.myButton:hover {
+	background-color:#5cbf2a;
+}
+.myButton:active {
+	position:relative;
+	top:1px;
+}
+.Button{
+	background-color:#08c239;
+	border-radius:28px;
+	border:1px solid #16de2a;
+	display:inline-block;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:14px;
+	padding:6px 20px;
+	text-shadow:0px 1px 0px #2f6627;
+  margin-left: 5px;
+}
+.Button:hover {
+	background-color:#5cbf2a;
+}
+.Button:active {
+	position:relative;
+	top:1px;
+}
 .menu dl#primero{
-  float:left;
-  margin-top:40px;
+  margin-top:10px;
 
-  width:160px;
+  width:auto;
   height:auto;
   padding:5px;
   overflow:auto;
   line-height:20px;
 
-  border-color:black;
-  border-style:solid;
-  background:#424242;
-
-
-  font-family:Airal;
-  font-size:16px;
-  font-weight:bold;
-}
-.menu dl#segundo{
-  clear: left;
-  float:left;
-  margin-top:100px;
-
-  width:160px;
-  height:auto;
-  padding:5px;
-  overflow:auto;
-  line-height:20px;
-
-  border-color:black;
-  border-style:solid;
-  background:#0404B4;
+  border-color:#E6E6E6;
+  border-style:double;
+  border-radius:10px;
+  background:#292A0A;
 
   font-family:Airal;
   font-size:16px;
   font-weight:bold;
   text-align: center;
+}
+#primero dt{
+  display: inline-block;
 }
 .contenido p{
   color: white;
 }
-.contenido_total{
-  margin-left:200px;
-}
 .descripcion{
   text-align: center;
+  color:white;
 }
 .contenido{
   margin-top:20px;
