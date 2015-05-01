@@ -85,23 +85,56 @@ body{
 .contenido{
   margin-top:20px;
 }
-.btn_1{
+#example1{
   display: inline-block;
+  float:left;
+  color: white;
+  border-radius: 4px;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+  background: rgb(28, 184, 65);
 }
-.btn_2{
-  margin-top: 10px;
+#example2{
+  display: inline-block;
+  float:left;
+  margin-left:20px;
+  color: white;
+  border-radius: 4px;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+  background: rgb(28, 184, 65);
 }
-.btn_3{
-  margin-top: 10px;
+#example3{
+  display: inline-block;
+  float:left;
+  margin-left:20px;
+  color: white;
+  border-radius: 4px;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+  background: rgb(28, 184, 65);
 }
-.btn_4{
-  margin-top: 10px;
+#exampleerr{
+  color: white;
+  margin-left:20px;
+  border-radius: 4px;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+  background: rgb(28, 184, 65);
 }
 .btn_5{
-  margin-left: 70px;
   display: inline-block;
+  margin-top:20px;
+  color: white;
+  border-radius: 4px;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+  background: rgb(28, 184, 65);
 }
 .btn_parse{
   display: inline-block;
-  margin-left: 90px;
+  margin-top: 20px;
+  margin-left:235px;
+}
+#PARSE{
+  color: black;
+  font-weight:bold;
+  border-radius: 4px;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+  background: #D7DF01;
 }
