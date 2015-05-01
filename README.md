@@ -1,7 +1,7 @@
 # Práctica 5: [Analizador del Lenguaje PL0 usando PEG.js]
 
 # Travis
-[![BuildStatus](.svg)](https://travis-ci.org/KevinRM/pl_practica_4)
+[![BuildStatus](https://travis-ci.org/KevinRM/pl_practica_5.svg)](https://travis-ci.org/KevinRM/pl_practica_5)
 
 # [Heroku]()
 
