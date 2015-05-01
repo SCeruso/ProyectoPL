@@ -1,0 +1,151 @@
+doctype html
+head
+    meta(charset='UTF-8')
+
+    link(rel='icon', type='image/jpg', href='/images/favicon.jpg')
+
+    link(rel='stylesheet', href='/stylesheets/estilo.css', type='text/css')
+
+    title Analizador
+
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js')
+    script(type='text/x-mathjax-config').
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+          displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+          processEscapes: true
+        },
+        "HTML-CSS": { availableFonts: ["TeX"] }
+      });
+    script(type='text/javascript', src='http://cdn.mathjax.org/mathjax/latest/MathJax.js')
+
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js')
+
+    script(src='/javascripts/main.js', type='text/javascript')
+
+    style(type='text/css').
+      a{text-decoration:none;}
+      a:link{color:white;}
+      a:visited{color:white;}
+      a:hover{font-size:16; color:#0B0B61;}
+  body
+    .contenido_total
+      .titulo_practica
+        h1(align='center')
+          font(color='white') Analizador Descendente Predictivo Recursivo
+
+        hr
+
+      .menu
+        dl#primero
+          dt
+            b
+              a.myButton(href='https://kevinrm.github.io/') P&aacute;gina Kevin
+
+          dt
+            b
+              a.myButton(href='http://alu0100764666.github.io/') P&aacute;gina Sabato
+
+          dt
+            b
+              a.Button(href='https://github.com/KevinRM/pl_practica_5')
+                | Ver en
+                strong Github
+
+          dt
+            b
+              a.Button(href='')
+                strong Travis
+
+          dt
+            b
+              a.Button(href='https://www.mathjax.org/') MathJax
+
+          dt
+            b
+              a.Button(href='http://en.wikipedia.org/wiki/Recursive_descent_parser') Wikipedia
+
+      .descripcion
+        p
+          i
+            b
+              u Esta web contiene un ejemplo de Analizador Descendente Predictivo Recursivo
+
+      |Esta es la gramática para nuestra práctica:
+
+      ol
+      li
+        |  $\Sigma = \{ ; =, ID, P, IF, THEN, <, >, <=, >=, ==, !=,  +, *, (, ), NUM \}$,
+      li
+        |  $V = \{ statements, statement, condition, expression, term, factor \}$
+      li
+        |  Productions:
+        ol
+          li
+            |  statements $ \rightarrow$ statement ';' statements $\vert$ statement
+          li
+            |  statement $ \rightarrow$ ID '=' expression $\vert$ P expression
+            |  $ \vert$ IF condition THEN statement
+          li
+            | condition $ \rightarrow$ expression ('=='|'!='|'<'|'<='|'>'|'>=') expression
+          li
+            |  expression $ \rightarrow$ term '+' expression $\vert$ term
+          li
+            |  term $ \rightarrow$ factor '*' term $\vert$ factor
+          li
+            |  factor $ \rightarrow$ '(' expression ')' $\vert$ ID $ \vert$ NUM
+      li
+        |  Start symbol: $statements$
+      br
+
+      .contenido
+        p Cargue un ejemplo para analizar o seleccione un archivo para subirlo
+
+        div
+          textarea#original(autofocus='', cols='72', rows='5')
+        br
+
+        .loadfile
+          .btn_1
+            button#example1(type='button', onclick="dump('/examples/example1.txt');") Example 1
+
+          .btn_2
+            button#example2(type='button', onclick="dump('/examples/example2.txt');") Example 2
+
+          .btn_3
+            button#example3(type='button', onclick="dump('/examples/example3.txt');") Example 3
+
+          .btn_4
+            button#exampleerr(type='button', onclick="dump('/examples/example_err.txt');") Example_error
+
+          .btn_5
+            input#files(type='file')
+
+          .btn_parse
+            input#PARSE.mylink(value='Parse', type='button')
+
+        script(type='text/javascript').
+          function dump(fileName) {
+          $.get(fileName, function (data) {
+          $("#original").val(data);
+          });
+          };
+          document.getElementById('files').addEventListener('change', CopyMe, false);
+          function CopyMe(evt) {
+          var file = evt.target.files[0];
+          if (file) {
+          var reader = new FileReader();
+          reader.onload = function(e) {
+          original.innerHTML = e.target.result;
+          }
+          var c = reader.readAsText(file);
+          }
+          else { alert("Failed to load file"); }
+          }
+
+    hr
+
+    pre#OUTPUT.

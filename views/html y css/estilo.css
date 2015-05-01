@@ -1,0 +1,140 @@
+body{
+
+  margin-left:10%;
+  margin-right:10%;
+  margin-top:30px;
+  margin-bottom:20px;
+
+  background-image:url(../images/fondo_1.png);
+  background-attachment:fixed;
+  background-repeat:repeat;
+
+}
+
+#OUTPUT  {
+  background-color: white;
+  width: 60%;
+}
+.myButton {
+	background-color:#b6c20a;
+  border-radius:28px;
+	border:1px solid #16de2a;
+	display:inline-block;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:14px;
+	padding:6px 20px;
+	text-shadow:0px 1px 0px #2f6627;
+  margin-left: 5px;
+}
+.myButton:hover {
+	background-color:#5cbf2a;
+}
+.myButton:active {
+	position:relative;
+	top:1px;
+}
+.Button{
+	background-color:#08c239;
+	border-radius:28px;
+	border:1px solid #16de2a;
+	display:inline-block;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:14px;
+	padding:6px 20px;
+	text-shadow:0px 1px 0px #2f6627;
+  margin-left: 5px;
+}
+.Button:hover {
+	background-color:#5cbf2a;
+}
+.Button:active {
+	position:relative;
+	top:1px;
+}
+.menu dl#primero{
+  margin-top:10px;
+
+  width:auto;
+  height:auto;
+  padding:5px;
+  overflow:auto;
+  line-height:20px;
+
+  border-color:#E6E6E6;
+  border-style:double;
+  border-radius:10px;
+  background:#292A0A;
+
+  font-family:Airal;
+  font-size:16px;
+  font-weight:bold;
+  text-align: center;
+}
+#primero dt{
+  display: inline-block;
+}
+.contenido p{
+  color: white;
+}
+.descripcion{
+  text-align: center;
+  color:white;
+}
+.contenido{
+  margin-top:20px;
+}
+#example1{
+  display: inline-block;
+  float:left;
+  color: white;
+  border-radius: 4px;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+  background: rgb(28, 184, 65);
+}
+#example2{
+  display: inline-block;
+  float:left;
+  margin-left:20px;
+  color: white;
+  border-radius: 4px;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+  background: rgb(28, 184, 65);
+}
+#example3{
+  display: inline-block;
+  float:left;
+  margin-left:20px;
+  color: white;
+  border-radius: 4px;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+  background: rgb(28, 184, 65);
+}
+#exampleerr{
+  color: white;
+  margin-left:20px;
+  border-radius: 4px;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+  background: rgb(28, 184, 65);
+}
+.btn_5{
+  display: inline-block;
+  margin-top:20px;
+  color: white;
+  border-radius: 4px;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+  background: rgb(28, 184, 65);
+}
+.btn_parse{
+  display: inline-block;
+  margin-top: 20px;
+  margin-left:235px;
+}
+#PARSE{
+  color: black;
+  font-weight:bold;
+  border-radius: 4px;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+  background: #D7DF01;
+}
