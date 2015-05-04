@@ -1,2 +1,8 @@
-a = 4*2;
-if a > 6 then p a
+const MICONSTANTE = 7, OTRACONSTANTE = 22;
+procedure suma;
+   var primero, segundo, resultado;
+   begin
+      resultado = primero + segundo;
+      p resultado
+   end;
+call suma.

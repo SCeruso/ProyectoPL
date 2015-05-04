@@ -1,1 +1,6 @@
-if a == 1 then b = 4
+const SoyLAConstante = 1000;
+procedure primerProcedimiento;
+     p SoloUnaSentencia;
+procedure segundoProcedimiento;
+     p ImprimoOtraVezSoloUnaSentencia;
+p YaFueraDeLosProcedimentos.
