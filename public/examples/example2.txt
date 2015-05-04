@@ -3,6 +3,6 @@ procedure suma;
    var primero, segundo, resultado;
    begin
       resultado = primero + segundo;
-      p resultado
+      call resultado
    end;
 call suma.
