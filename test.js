@@ -1,4 +1,6 @@
-var PEG = require("./p10.js");
-var input = process.argv[2] || "a = 5-3-2";
+var PEG = require("./NFA.js");
+var util = require("util");
+var input = process.argv[2] || "";
 var r = PEG.parse(input);
-console.log(r);
+var c = util.inspect(r);
+console.log(util.inspect(r));
