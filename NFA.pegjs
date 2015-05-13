@@ -1,18 +1,4 @@
 {
-  var tree = function(f, r) {
-    if (r.length > 0) {
-      var last = r.pop();
-      var result = {
-        type:  last[0],
-        left: tree(f, r),
-        right: last[1]
-      };
-    }
-    else {
-      var result = f;
-    }
-    return result;
-  }
   function Nfa () {
       this.nodes = {};
       this.finals = {};
@@ -60,10 +46,7 @@ link = MINUS GTN { return {type: "single", value: null};}
 
 _ = $[ \t\n\r]*
 
-ASSIGN   = _ op:'=' _  { return op; }
-ADD      = _ op:[+-] _ { return op; }
-MUL      = _ op:[*/] _ { return op; }
-CONDITIONAL = _ op:$([<>=!][=]/[<>]) _ { return op;}
+
 MINUS = _ "-" _
 GTN = _ ">" _
 LTN = _ "<" _
@@ -71,26 +54,9 @@ LEFTBRACE = _ "{" _
 RIGHTBRACE = _ "}" _
 LEFTPAR  = _"("_
 RIGHTPAR = _")"_
-IF       = _ "if" _
-THEN     = _ "then" _
-ELSE     = _ "else" _
-CALL     = _ "call" _
-WHILE    = _ "while" _
-DO       = _ "do" _
-BEGIN    = _ "begin" _
-END      = _ "end" _
 SEMICOLON = _";" _
-COLON = _ "," _
-DOT = _ "." _
-CONST = _ "const" _
-VAR = _ "var" _
-PROCEDURE = _ "procedure" _
 NFA = _ "NFA" _
 ID       = _ id:$([a-zA-Z_0-9]*) _
             {
               return { type: 'ID', value: id };
-            }
-NUMBER   = _ digits:$[0-9]+ _
-            {
-              return { type: 'NUM', value: parseInt(digits, 10) };
             }
