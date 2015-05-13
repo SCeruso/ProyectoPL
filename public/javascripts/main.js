@@ -2,7 +2,7 @@
 		var result, source;
 		source = original.value;
 		try {
-			result = JSON.stringify(p10.parse(source), null, 2);
+			result = JSON.stringify(nfa.parse(source), null, 2);
 		} catch (_error) {
 			result = _error;
 			result = "<div class=\"error\">" + result + "</div>";
