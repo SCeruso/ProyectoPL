@@ -1,6 +1,5 @@
-const SoyLAConstante = 1000;
-procedure primerProcedimiento;
-     call SoloUnaSentencia;
-procedure segundoProcedimiento;
-     call ImprimoOtraVezSoloUnaSentencia;
-call YaFueraDeLosProcedimentos.
+NFA miNfa {
+     (9) -> (3);
+     (a) -e-> (b);
+     (b) <-2-> ((c));
+};
