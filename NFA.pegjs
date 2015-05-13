@@ -21,7 +21,18 @@
           this.finals[link.second.value.value] = true;
       }
   };
+  function TuringMachine () {
+      this.nfa = new Nfa();
+      this.input = undefined;
+      this.output = "";
 
+      this.setInput = function (input) {
+        this.input = input;
+      }
+      this.addLink = function(link) {
+        this.nfa.addLink(link);
+      }
+  };
 }
 program = bl: (block) {return bl;}              // Mas adelante hacemos un hash para q se puedan declarar mas de uno.
 
@@ -33,7 +44,15 @@ declaration = NFA id:ID LEFTBRACE links:(linkdec)+ RIGHTBRACE SEMICOLON {
     nfa.addLink(links[i]);
   return nfa;
   }
+              / TURING id:ID LEFTBRACE i:input links:(linkdec)+ RIGHTBRACE SEMICOLON {
+                var turing = new TuringMachine();
+                turing.setInput(i);
+                for (var i = 0; i < links.length; i++)
+                  turing.addLink(links[i]);
+                return turing;
+              }
 
+input = INPUTSTART i:$([^;]+) SEMICOLON {return i;}
 linkdec = n1:node l:link n2:node SEMICOLON { return {first:n1, link:l, second:n2};}
 
 node = LEFTPAR id:ID RIGHTPAR { return {value: id, final: false};}
@@ -56,6 +75,8 @@ LEFTPAR  = _"("_
 RIGHTPAR = _")"_
 SEMICOLON = _";" _
 NFA = _ "NFA" _
+TURING = _ "TuringMachine" _
+INPUTSTART = _"Input:"_
 ID       = _ id:$([a-zA-Z_0-9]*) _
             {
               return { type: 'ID', value: id };

@@ -1,8 +1,5 @@
-const MICONSTANTE = 7, OTRACONSTANTE = 22;
-procedure suma;
-   var primero, segundo, resultado;
-   begin
-      resultado = primero + segundo;
-      call resultado
-   end;
-call suma.
+TuringMachine t {
+  Input: MiInput;
+  (a) -i-> (b);
+  (b) <-> (c);
+};

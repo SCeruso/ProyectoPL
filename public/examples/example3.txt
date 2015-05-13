@@ -1,8 +1,7 @@
-begin
-  call read;
-    while a < 10 do
-       begin
-            b = b + 1;
-            a = a - 1
-        end
-end.       
+TuringMachine t {
+  Input: MiInput;
+  (a) -i-> (b);
+  (b) <-> (c);
+  (d) -> ((f));
+  ((f)) -> (c);
+};
