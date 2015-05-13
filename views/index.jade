@@ -36,7 +36,7 @@ head
     .contenido_total
       .titulo_practica
         h1(align='center')
-          font(color='white') Analizador Descendente Predictivo Recursivo
+          font(color='white') Analizador de Automatas Finitos No Deterministas (NFA)
 
         hr
 
@@ -52,11 +52,11 @@ head
 
           dt
             b
-              a.myButton(href='tests/indexpruebas.html') Tests
+              a.myButton(href="tests/index.html") Tests
 
           dt
             b
-              a.Button(href='https://github.com/KevinRM/pl_practica_5')
+              a.Button(href='https://github.com/alu0100764666/ProyectoPL')
                 | Ver en
                 strong Github
 
@@ -71,39 +71,27 @@ head
 
           dt
             b
-              a.Button(href='http://en.wikipedia.org/wiki/Recursive_descent_parser') Wikipedia
+              a.Button(href='http://es.wikipedia.org/wiki/Aut%C3%B3mata_finito_no_determinista') Wikipedia
 
       .descripcion
         p
           i
             b
-              u Esta web contiene un ejemplo de Analizador Descendente Predictivo Recursivo
+              u Esta web contiene un ejemplo de Analizador de Automatas Finitos No Deterministas (NFA), recibe la definición de un NFA y una cadena y nos dice si es aceptada o no.
 
-      |Esta es la gramática para nuestra práctica:
+      |Un autómata finito no determinista se define como:
 
       ol
       li
-        |  $\Sigma = \{ ; =, ID, P, IF, THEN, <, >, <=, >=, ==, !=,  +, *, (, ), NUM \}$,
+        |  $Q$ es un conjunto de estados
       li
-        |  $V = \{ statements, statement, condition, expression, term, factor \}$
+        |  $\Sigma$ es un alfabeto
       li
-        |  Productions:
-        ol
-          li
-            |  statements $ \rightarrow$ statement ';' statements $\vert$ statement
-          li
-            |  statement $ \rightarrow$ ID '=' expression $\vert$ P expression
-            |  $ \vert$ IF condition THEN statement
-          li
-            | condition $ \rightarrow$ expression ('=='|'!='|'<'|'<='|'>'|'>=') expression
-          li
-            |  expression $ \rightarrow$ term '+' expression $\vert$ term
-          li
-            |  term $ \rightarrow$ factor '*' term $\vert$ factor
-          li
-            |  factor $ \rightarrow$ '(' expression ')' $\vert$ ID $ \vert$ NUM
+        |  $q_0 \in Q$ es el estado inicial
       li
-        |  Start symbol: $statements$
+        |  $\delta \colon Q \times \Sigma \to P(Q)$ es una función de transición
+      li
+        |  Para el caso de los $NFA- \epsilon$, se suele expresar la función de transición de la forma: $\delta \colon Q \times \{ \Sigma \cup \epsilon \} \to P(Q)$
       br
 
       .contenido
