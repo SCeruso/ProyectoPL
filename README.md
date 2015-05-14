@@ -1,7 +1,10 @@
-# Práctica 5: [Analizador del Lenguaje PL0 usando PEG.js]
+# Proyecto PL: [Analizador de Automatas Finitos No Deterministas (NFA)]
 
-# Travis
-[![BuildStatus](https://travis-ci.org/KevinRM/pl_practica_5.svg)](https://travis-ci.org/KevinRM/pl_practica_5)
+- Esta web contiene un ejemplo de Analizador de Automatas Finitos No Deterministas (NFA), recibe la definición de un NFA y una cadena y nos dice si es aceptada o no.
+
+# [Tests]()
+
+# Travis [![BuildStatus](.svg)]()
 
 # [Heroku]()
 
