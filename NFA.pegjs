@@ -2,8 +2,11 @@
   function Nfa () {
       this.nodes = {};
       this.finals = {};
+      this.start = undefined;
 
       this.addLink = function (link) {
+        if (!this.start)
+          this.start = link.first.value.value;
         if (this.nodes[link.first.value.value] == undefined)
           this.nodes[link.first.value.value] = {};
 
@@ -20,17 +23,44 @@
         if (link.second.final)
           this.finals[link.second.value.value] = true;
       }
-  };
-  function TuringMachine () {
-      this.nfa = new Nfa();
-      this.input = undefined;
-      this.output = "";
-
-      this.setInput = function (input) {
-        this.input = input;
+      this.transition = function (char, set) {
+        var newSet = [];
+        for (var i = 0; i < set.length; i++) {
+          for (var j = 0; j < Object.keys(this.nodes[set[i]]).length; j++) {
+            if (this.nodes[set[i]][Object.keys(this.nodes[set[i]])[j]] == char)
+              newSet.push(Object.keys(this.nodes[set[i]])[j]);
+          }
+        }
+        return newSet;
       }
-      this.addLink = function(link) {
-        this.nfa.addLink(link);
+      this.epsylonClausura = function (set) {
+          for (var i = 0; i < set.length; i++) {
+            for (var j = 0; j < Object.keys(this.nodes).length; j++) {
+              if(Object.keys(this.nodes)[j] == set[i]) {
+                for (var k = 0; k < Object.keys(this.nodes[Object.keys(this.nodes)[j]]).length; k++) {
+                  if (this.nodes[Object.keys(this.nodes)[j]][Object.keys(this.nodes[Object.keys(this.nodes)[j]])[k]] == null)
+                    set.push(Object.keys(this.nodes[Object.keys(this.nodes)[j]])[k]);
+                }
+              }
+            }
+          }
+      }
+      this.testString = function (input) {
+        var set = [];
+        var newSet = [];
+        set.push(this.start);
+
+        for (var i = 0; i < input.length; i++) {
+          this.epsylonClausura(set);
+          newSet = this.transition(input[i], set);
+          this.epsylonClausura(newSet);
+          set = newSet;
+        }
+
+        for (var i = 0; i < set.length; i++)
+          if (this.finals[set[i]])
+            return true;
+        return false;
       }
   };
 }
@@ -44,15 +74,8 @@ declaration = NFA id:ID LEFTBRACE links:(linkdec)+ RIGHTBRACE SEMICOLON {
     nfa.addLink(links[i]);
   return nfa;
   }
-              / TURING id:ID LEFTBRACE i:input links:(linkdec)+ RIGHTBRACE SEMICOLON {
-                var turing = new TuringMachine();
-                turing.setInput(i);
-                for (var i = 0; i < links.length; i++)
-                  turing.addLink(links[i]);
-                return turing;
-              }
 
-input = INPUTSTART i:$([^;]+) SEMICOLON {return i;}
+
 linkdec = n1:node l:link n2:node SEMICOLON { return {first:n1, link:l, second:n2};}
 
 node = LEFTPAR id:ID RIGHTPAR { return {value: id, final: false};}
@@ -75,7 +98,6 @@ LEFTPAR  = _"("_
 RIGHTPAR = _")"_
 SEMICOLON = _";" _
 NFA = _ "NFA" _
-TURING = _ "TuringMachine" _
 INPUTSTART = _"Input:"_
 ID       = _ id:$([a-zA-Z_0-9]*) _
             {
