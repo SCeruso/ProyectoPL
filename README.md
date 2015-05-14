@@ -2,11 +2,11 @@
 
 - Esta web contiene un ejemplo de Analizador de Automatas Finitos No Deterministas (NFA), recibe la definición de un NFA y devuelve un objeto nfa que es capaz de analizar cadenas.
 
-# [Tests]()
+# [Tests](http://nfaparser.herokuapp.com/tests/index.html)
 
-# Travis [![BuildStatus](.svg)]()
+# Travis [![Build Status](https://travis-ci.org/alu0100764666/ProyectoPL.svg?branch=master)](https://travis-ci.org/alu0100764666/ProyectoPL)
 
-# [Heroku]()
+# [Heroku](http://nfaparser.herokuapp.com)
 
 # Participantes
 - Sabato Ceruso
