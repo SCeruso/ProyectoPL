@@ -1,5 +1,4 @@
-TuringMachine t {
-  Input: MiInput;
+NFA t {
   (a) -i-> (b);
   (b) <-> (c);
   (d) -> ((f));
