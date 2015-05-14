@@ -1,6 +1,6 @@
 # Proyecto PL: [Analizador de Automatas Finitos No Deterministas (NFA)]
 
-- Esta web contiene un ejemplo de Analizador de Automatas Finitos No Deterministas (NFA), recibe la definición de un NFA y una cadena y nos dice si es aceptada o no.
+- Esta web contiene un ejemplo de Analizador de Automatas Finitos No Deterministas (NFA), recibe la definición de un NFA y devuelve un objeto nfa que es capaz de analizar cadenas.
 
 # [Tests]()
 

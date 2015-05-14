@@ -39,7 +39,8 @@
               if(Object.keys(this.nodes)[j] == set[i]) {
                 for (var k = 0; k < Object.keys(this.nodes[Object.keys(this.nodes)[j]]).length; k++) {
                   if (this.nodes[Object.keys(this.nodes)[j]][Object.keys(this.nodes[Object.keys(this.nodes)[j]])[k]] == null)
-                    set.push(Object.keys(this.nodes[Object.keys(this.nodes)[j]])[k]);
+                    if (set.indexOf(Object.keys(this.nodes[Object.keys(this.nodes)[j]])[k]) == -1)
+                      set.push(Object.keys(this.nodes[Object.keys(this.nodes)[j]])[k]);
                 }
               }
             }

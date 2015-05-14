@@ -965,8 +965,11 @@ nfa = (function() {
       function Nfa () {
           this.nodes = {};
           this.finals = {};
+          this.start = undefined;
 
           this.addLink = function (link) {
+            if (!this.start)
+              this.start = link.first.value.value;
             if (this.nodes[link.first.value.value] == undefined)
               this.nodes[link.first.value.value] = {};
 
@@ -982,6 +985,46 @@ nfa = (function() {
               this.finals[link.first.value.value] = true;
             if (link.second.final)
               this.finals[link.second.value.value] = true;
+          }
+          this.transition = function (char, set) {
+            var newSet = [];
+            for (var i = 0; i < set.length; i++) {
+              for (var j = 0; j < Object.keys(this.nodes[set[i]]).length; j++) {
+                if (this.nodes[set[i]][Object.keys(this.nodes[set[i]])[j]] == char)
+                  newSet.push(Object.keys(this.nodes[set[i]])[j]);
+              }
+            }
+            return newSet;
+          }
+          this.epsylonClausura = function (set) {
+              for (var i = 0; i < set.length; i++) {
+                for (var j = 0; j < Object.keys(this.nodes).length; j++) {
+                  if(Object.keys(this.nodes)[j] == set[i]) {
+                    for (var k = 0; k < Object.keys(this.nodes[Object.keys(this.nodes)[j]]).length; k++) {
+                      if (this.nodes[Object.keys(this.nodes)[j]][Object.keys(this.nodes[Object.keys(this.nodes)[j]])[k]] == null)
+                        if (set.indexOf(Object.keys(this.nodes[Object.keys(this.nodes)[j]])[k]) == -1)
+                          set.push(Object.keys(this.nodes[Object.keys(this.nodes)[j]])[k]);
+                    }
+                  }
+                }
+              }
+          }
+          this.testString = function (input) {
+            var set = [];
+            var newSet = [];
+            set.push(this.start);
+
+            for (var i = 0; i < input.length; i++) {
+              this.epsylonClausura(set);
+              newSet = this.transition(input[i], set);
+              this.epsylonClausura(newSet);
+              set = newSet;
+            }
+
+            for (var i = 0; i < set.length; i++)
+              if (this.finals[set[i]])
+                return true;
+            return false;
           }
       };
 

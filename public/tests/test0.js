@@ -43,6 +43,11 @@
       assert.deepEqual(result.finals.a, undefined);
       return assert.deepEqual(result.nodes.a.b, "c");
     });
+    it("Should parse NFA and test strings with epsylon transitions", function() {
+      var result;
+      result = nfa.parse("NFA miNfa {(a)<->(b); (b)-1->((c));};");
+      return assert(result.testString("1"));
+    });
     it("Should detect error", function() {
       var result;
       try {
